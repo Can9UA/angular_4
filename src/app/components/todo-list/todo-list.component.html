@@ -1,0 +1,8 @@
+<ul class="list-group list-group-flush">
+  <li class="list-group-item"
+      *ngFor="let todo of todos; let index = index"
+      [ngClass]="{'list-group-item-success': todo.complited}"
+  >
+    <app-todo-item></app-todo-item>
+  </li>
+</ul>

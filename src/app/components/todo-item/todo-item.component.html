@@ -1,0 +1,16 @@
+<div class="justify-content-between">
+  <div>
+    <i class="fa"
+       [ngClass]="{
+             'fa-check-square-o': todo.complited,
+             'fa-square-o': !todo.complited
+           }"
+       (click)="toggleState(todo)"
+    ></i>
+    <!--<span class="ml-2">#{{index}}</span>-->
+  </div>
+  <h6> {{todo.title}}</h6>
+  <button type="button" class="btn btn-danger"
+          (click)="deleteTodo(todo)"
+  >Delete</button>
+</div>
