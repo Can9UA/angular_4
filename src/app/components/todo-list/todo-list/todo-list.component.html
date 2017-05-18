@@ -1,0 +1,39 @@
+<div class="pt-2 pb-2 container">
+  <form class="form-inline"
+    (ngSubmit)="addTodo(); todoForm.reset()"
+    #todoForm="ngForm"
+  >
+    <div class="form-group">
+      <label for="newTodoTitle" class="mr-2">Password</label>
+      <input type="text" class="form-control mx-sm-9 mr-2" required id="newTodoTitle" name="newTodoTitle" placeholder="New Todo"
+        [(ngModel)]="newTodoTitle"
+      >
+    </div>
+    <button type="submit" class="btn btn-primary"
+      [disabled]="todoForm.form.invalid"
+    >Add</button>
+  </form>
+</div>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item justify-content-between"
+        *ngFor="let todo of todos; let index = index"
+        [ngClass]="{'list-group-item-success': todo.complited}"
+    >
+      <div>
+        <i class="fa"
+           [ngClass]="{
+             'fa-check-square-o': todo.complited,
+             'fa-square-o': !todo.complited
+           }"
+           (click)="toggleState(todo)"
+        ></i>
+        <span class="ml-2">#{{index}}</span>
+      </div>
+      <h6> {{todo.title}}</h6>
+      <button type="button" class="btn btn-danger"
+        (click)="deleteTodo(todo)"
+        >Delete</button>
+    </li>
+  </ul>
+</div>
