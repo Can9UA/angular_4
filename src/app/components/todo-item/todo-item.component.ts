@@ -1,12 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-// import { Todo } from '../../shared/todo';
-export class Todo {
-  constructor(
-    public title: string,
-    public complited: boolean = false
-  ) {}
-}
+import { Todo } from '../../shared/todo';
 
 @Component({
   selector: 'app-todo-item',
