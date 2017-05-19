@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {Todo} from 'app/shared/todo';
+import {Todo} from 'app/shared/todoClass';
 import {todos} from 'app/shared/todosData';
 
 @Component({
