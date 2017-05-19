@@ -17,12 +17,8 @@ export class TodoListComponent {
   todos: Todo[] = todos;
   newTodoTitle: string = '';
 
-  toggleState(todo: Todo) {
-    todo.complited = !todo.complited;
-  }
-
   deleteTodo(todo: Todo) {
-    let index = this.todos.indexOf(todo);
+    const index = this.todos.indexOf(todo);
 
     if (index > -1) {
       this.todos.splice(index, 1);
