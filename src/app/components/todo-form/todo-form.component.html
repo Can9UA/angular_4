@@ -1,11 +1,11 @@
 <form class="form-inline"
-      (ngSubmit)="addTodo(); todoForm.reset()"
+      (ngSubmit)="createTodo(); todoForm.reset()"
       #todoForm="ngForm"
 >
   <div class="form-group">
-    <label for="newTodoTitle" class="mr-2">Password</label>
-    <input type="text" class="form-control mx-sm-9 mr-2" required id="newTodoTitle" name="newTodoTitle" placeholder="New Todo"
-           [(ngModel)]="newTodoTitle"
+    <label for="title" class="mr-2">Password</label>
+    <input type="text" class="form-control mx-sm-9 mr-2" required id="title" name="title" placeholder="New Todo"
+           [(ngModel)]="title"
     >
   </div>
   <button type="submit" class="btn btn-primary"

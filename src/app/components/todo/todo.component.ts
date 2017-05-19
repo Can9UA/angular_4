@@ -1,18 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+
+import {Todo} from 'app/shared/todo';
+import {todos} from 'app/shared/todosData';
 
 @Component({
-  selector:    'app-todo',
+  selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls:   ['./todo.component.css']
+  styleUrls: ['./todo.component.css']
 })
 
-export class TodoComponent implements OnInit {
+export class TodoComponent {
+  todos: Todo[] = todos;
 
-  constructor() {
+  addTodo(todo: Todo) {
+    todos.push(todo);
   }
-
-  ngOnInit() {
-
-  }
-
 }

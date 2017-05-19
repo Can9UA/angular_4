@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Todo } from '../../shared/todo';
+import {Component, Input} from '@angular/core';
 
-import { todos } from '../../shared/todosData';
+import {Todo} from 'app/shared/todo';
 
 @Component({
-  selector:    'app-todo-list',
+  selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls:   ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
-  todos: Todo[] = todos;
-  newTodoTitle = '';
+  @Input() todos: Todo[];
 
   deleteTodo(todo: Todo) {
     const index = this.todos.indexOf(todo);
@@ -18,15 +16,5 @@ export class TodoListComponent {
     if (index > -1) {
       this.todos.splice(index, 1);
     }
-  }
-
-  addTodo() {
-
-    this.todos.push({
-      title: this.newTodoTitle,
-      complited: false
-    });
-
-    this.newTodoTitle = '';
   }
 }

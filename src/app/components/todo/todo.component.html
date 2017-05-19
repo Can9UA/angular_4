@@ -1,7 +1,9 @@
 <div class="pt-2 pb-2 container">
-  <app-todo-form></app-todo-form>
+  <app-todo-form
+      (addTodo)="addTodo($event)"
+  ></app-todo-form>
 </div>
 
 <div class="card">
-  <app-todo-list></app-todo-list>
+  <app-todo-list [todos]="todos"></app-todo-list>
 </div>
