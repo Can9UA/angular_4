@@ -10,7 +10,7 @@ import { todos } from '../../shared/todosData';
 })
 export class TodoListComponent {
   todos: Todo[] = todos;
-  newTodoTitle: string = '';
+  newTodoTitle = '';
 
   deleteTodo(todo: Todo) {
     const index = this.todos.indexOf(todo);

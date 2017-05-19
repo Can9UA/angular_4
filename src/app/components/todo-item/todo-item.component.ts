@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import { Todo } from '../../shared/todo';
 
@@ -10,9 +10,14 @@ import { Todo } from '../../shared/todo';
 export class TodoItemComponent {
 
   @Input() todo: Todo;
+  @Output() deleteTodo = new EventEmitter;
 
   toggleState() {
     this.todo.complited = !this.todo.complited;
   }
 
+  deleteMe() {
+    this.deleteTodo.emit(this.todo);
+  }
 }
+

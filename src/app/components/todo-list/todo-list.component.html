@@ -3,6 +3,9 @@
       *ngFor="let todo of todos; let index = index"
       [ngClass]="{'list-group-item-success': todo.complited}"
   >
-    <app-todo-item [todo]="todo"></app-todo-item>
+    <app-todo-item
+        [todo]="todo"
+        (deleteTodo)="deleteTodo($event)"
+    ></app-todo-item>
   </li>
 </ul>
