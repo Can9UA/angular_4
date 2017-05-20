@@ -8,7 +8,7 @@ import {Todo} from 'app/shared/todoClass';
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent {
-  title = 'adads';
+  title = '';
   @Output() addTodo = new EventEmitter();
 
   createTodo() {
