@@ -24,7 +24,7 @@ import { InMemoryDataService } from './shared/data.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 })
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 })
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
