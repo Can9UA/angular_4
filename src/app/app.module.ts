@@ -5,10 +5,10 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './components/todo/todo.component';
-import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { TodoFormComponent } from './components/todo-form/todo-form.component';
-import { TodoItemComponent } from './components/todo-item/todo-item.component';
-import { TodoService } from 'app/services/todo.service';
+import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
+import { TodoFormComponent } from './components/todo/todo-form/todo-form.component';
+import { TodoItemComponent } from './components/todo/todo-item/todo-item.component';
+import { TodoService } from 'app/components/todo/services/todo.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/data.service';
 
