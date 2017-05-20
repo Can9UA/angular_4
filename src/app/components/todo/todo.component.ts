@@ -17,8 +17,4 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.todos = this.todoService.getTodos();
   }
-
-  addTodo(todo: Todo) {
-    this.todos.push(todo);
-  }
 }

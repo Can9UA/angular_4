@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 import {Todo} from 'app/shared/todoClass';
+import {TodoService} from 'app/services/todo.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,16 +9,16 @@ import {Todo} from 'app/shared/todoClass';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent {
-
   @Input() todo: Todo;
-  @Output() deleteTodo = new EventEmitter;
 
-  toggleState() {
-    this.todo.complited = !this.todo.complited;
+  constructor(private todoService: TodoService) {}
+  toggleState(todo: Todo) {
+    this.todoService.toggleTodoState(todo);
   }
 
-  deleteMe() {
-    this.deleteTodo.emit(this.todo);
+  delete(todo: Todo) {
+    this.todoService.deleteTodo(todo);
   }
+
 }
 

@@ -9,12 +9,4 @@ import {Todo} from 'app/shared/todoClass';
 })
 export class TodoListComponent {
   @Input() todos: Todo[];
-
-  deleteTodo(todo: Todo) {
-    const index = this.todos.indexOf(todo);
-
-    if (index > -1) {
-      this.todos.splice(index, 1);
-    }
-  }
 }

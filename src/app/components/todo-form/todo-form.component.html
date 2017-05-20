@@ -1,9 +1,9 @@
 <form class="form-inline"
-      (ngSubmit)="createTodo(); todoForm.reset()"
+      (ngSubmit)="addTodo(); todoForm.reset()"
       #todoForm="ngForm"
 >
   <div class="form-group">
-    <label for="title" class="mr-2">Password</label>
+    <label for="title" class="mr-2">Title</label>
     <input type="text" class="form-control mx-sm-9 mr-2" required id="title" name="title" placeholder="New Todo"
            [(ngModel)]="title"
     >
