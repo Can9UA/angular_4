@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component, Input, EventEmitter,
+  Output
+} from '@angular/core';
 
 import { Todo } from 'app/shared/todoClass';
-import { TodoService } from 'app/services/todo.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -10,16 +12,15 @@ import { TodoService } from 'app/services/todo.service';
 })
 export class TodoItemComponent {
   @Input() todo: Todo;
-
-  constructor(private todoService: TodoService) {}
-
-  toggleState(todo: Todo) {
-    this.todoService.toggleTodoState(todo);
-  }
+  @Output() deleteMe: EventEmitter<Todo> = new EventEmitter();
+  @Output() toggleMe: EventEmitter<Todo> = new EventEmitter();
 
   delete(todo: Todo) {
-    this.todoService.deleteTodo(todo);
+    this.deleteMe.emit(todo);
   }
 
+  toggle(todo: Todo) {
+    this.toggleMe.emit(todo);
+  }
 }
 

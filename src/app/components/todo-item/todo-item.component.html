@@ -2,7 +2,7 @@
   <div>
     <i class="fa"
        [ngClass]="{ 'fa-check-square-o': todo.complited, 'fa-square-o': !todo.complited }"
-       (click)="toggleState(todo)"
+       (click)="toggle(todo)"
     ></i>
   </div>
   <h6 class="mb-0"> {{todo.title}}</h6>

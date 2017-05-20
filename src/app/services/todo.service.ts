@@ -15,14 +15,12 @@ import { Error } from 'tslint/lib/error';
 @Injectable()
 export class TodoService {
   private apiUrl = 'api/todos';
-  todos: Todo[] = [];
 
   constructor(private http: Http) {}
 
   getTodos(): Observable<Todo[]> {
     return this.http.get(this.apiUrl)
       .map(res => res.json().data)
-      .map(todos => this.todos = todos)
       .catch(this.handleError);
   }
 
@@ -31,12 +29,8 @@ export class TodoService {
     const options = new RequestOptions({ headers });
     const url = `${this.apiUrl}/${todo.id}`;
 
-    this.http.put(url, todo, options)
-      .map(() => {
-        todo.complited = !todo.complited;
-      })
-      .catch(this.handleError)
-      .subscribe();
+    return this.http.put(url, todo, options)
+                .catch(this.handleError);
   }
 
   addTodo(title: string) {
@@ -44,11 +38,9 @@ export class TodoService {
     const options = new RequestOptions({ headers });
     const newTodo = new Todo(title);
 
-    this.http.post(this.apiUrl, newTodo, options)
+    return this.http.post(this.apiUrl, newTodo, options)
       .map(res => res.json().data)
-      .map(todo => this.todos.push(todo))
-      .catch(this.handleError)
-      .subscribe();
+      .catch(this.handleError);
   }
 
   deleteTodo(todo: Todo) {
@@ -56,16 +48,8 @@ export class TodoService {
     const options = new RequestOptions({ headers });
     const url = `${this.apiUrl}/${todo.id}`;
 
-    this.http.delete(url, options)
-      .map(() => {
-        const index = this.todos.indexOf(todo);
-
-        if (index > -1) {
-          this.todos.splice(index, 1);
-        }
-      })
-      .catch(this.handleError)
-      .subscribe();
+    return this.http.delete(url, options)
+      .catch(this.handleError);
   }
 
   private handleError(error: any) {
