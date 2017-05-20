@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {Todo} from 'app/shared/todoClass';
-import {todos} from 'app/shared/todosData';
+import {TodoService} from 'app/services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -9,10 +9,16 @@ import {todos} from 'app/shared/todosData';
   styleUrls: ['./todo.component.css']
 })
 
-export class TodoComponent {
-  todos: Todo[] = todos;
+export class TodoComponent implements OnInit {
+  todos: Todo[];
+
+  constructor (private todoService: TodoService) {}
+
+  ngOnInit() {
+    this.todos = this.todoService.getTodos();
+  }
 
   addTodo(todo: Todo) {
-    todos.push(todo);
+    this.todos.push(todo);
   }
 }
