@@ -1,6 +1,10 @@
-import {Injectable} from '@angular/core';
-import {Todo} from 'app/shared/todoClass';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Todo } from 'app/shared/todoClass';
+import {
+  Http,
+  Headers,
+  RequestOptions
+} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -9,7 +13,7 @@ export class TodoService {
   private apiUrl = 'api/todos';
   todos: Todo[] = [];
 
-  constructor (private http: Http) {}
+  constructor(private http: Http) {}
 
   getTodos(): Promise<Todo[]> {
     return this.http.get(this.apiUrl)
@@ -20,8 +24,8 @@ export class TodoService {
   }
 
   toggleTodoState(todo: Todo) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers});
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers });
     const url = `${this.apiUrl}/${todo.id}`;
 
     this.http.put(url, todo, options)
@@ -33,8 +37,8 @@ export class TodoService {
   }
 
   addTodo(title: string) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers});
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers });
     const newTodo = new Todo(title);
 
     this.http.post(this.apiUrl, newTodo, options)
@@ -45,8 +49,8 @@ export class TodoService {
   }
 
   deleteTodo(todo: Todo) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions({headers});
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers });
     const url = `${this.apiUrl}/${todo.id}`;
 
     this.http.delete(url, options)

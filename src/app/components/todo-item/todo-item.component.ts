@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import {Todo} from 'app/shared/todoClass';
-import {TodoService} from 'app/services/todo.service';
+import { Todo } from 'app/shared/todoClass';
+import { TodoService } from 'app/services/todo.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -12,6 +12,7 @@ export class TodoItemComponent {
   @Input() todo: Todo;
 
   constructor(private todoService: TodoService) {}
+
   toggleState(todo: Todo) {
     this.todoService.toggleTodoState(todo);
   }

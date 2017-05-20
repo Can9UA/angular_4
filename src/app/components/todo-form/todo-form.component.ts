@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {TodoService} from 'app/services/todo.service';
+import { TodoService } from 'app/services/todo.service';
 
 @Component({
   selector: 'app-todo-form',
@@ -10,7 +10,7 @@ import {TodoService} from 'app/services/todo.service';
 export class TodoFormComponent {
   title = '';
 
-  constructor (private todoService: TodoService) {}
+  constructor(private todoService: TodoService) {}
 
   addTodo() {
     this.todoService.addTodo(this.title);

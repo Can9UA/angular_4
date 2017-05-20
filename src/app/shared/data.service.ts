@@ -1,4 +1,4 @@
-import {InMemoryDbService} from 'angular-in-memory-web-api';
+import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
@@ -20,6 +20,6 @@ export class InMemoryDataService implements InMemoryDbService {
       complited: false
     }];
 
-    return {todos: todos};
+    return { todos: todos };
   }
 }

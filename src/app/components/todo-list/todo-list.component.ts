@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import {Todo} from 'app/shared/todoClass';
+import { Todo } from 'app/shared/todoClass';
 
 @Component({
   selector: 'app-todo-list',
