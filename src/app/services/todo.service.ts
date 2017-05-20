@@ -1,13 +1,22 @@
 import {Injectable} from '@angular/core';
-import {todos} from 'app/shared/todosData';
 import {Todo} from 'app/shared/todoClass';
+import {Http} from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TodoService {
-  todos: Todo[] = todos;
+  private apiUrl = 'api/todos';
+  todos: Todo[] = [];
 
-  getTodos(): Todo[] {
-    return this.todos;
+  constructor (private http: Http) {}
+
+  getTodos(): Promise<Todo[]> {
+    return this.http.get(this.apiUrl)
+      .toPromise()
+      .then(res => res.json().data)
+      .then(todos => this.todos = todos)
+      .catch(this.hadleError);
   }
 
   toggleTodoState(todo: Todo) {
@@ -24,5 +33,10 @@ export class TodoService {
     if (index > -1) {
       this.todos.splice(index, 1);
     }
+  }
+
+  private hadleError(error: any) {
+    console.error(error);
+    return Promise.reject(error.message || error);
   }
 }
