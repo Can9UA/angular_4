@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { TodoModule } from './components/todo/todo.module';
+import { TodoModule } from './modules/todo/todo.module';
 import { AppComponent } from './app.component';
 
 @NgModule({

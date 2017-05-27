@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { TodoComponent } from './todo.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoFormComponent } from './todo-form/todo-form.component';
-import { TodoItemComponent } from './todo-item/todo-item.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TodoFormComponent } from './components/todo-form/todo-form.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoService } from './services/todo.service';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
