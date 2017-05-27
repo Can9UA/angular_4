@@ -2,11 +2,11 @@
   <div>
     <i class="fa"
        [ngClass]="{ 'fa-check-square-o': todo.complited, 'fa-square-o': !todo.complited }"
-       (click)="toggle(todo)"
+       (click)="toggleState()"
     ></i>
   </div>
   <h6 class="mb-0"> {{todo.title}}</h6>
   <button type="button" class="btn btn-danger"
-          (click)="delete(todo)"
+          (click)="deleteTodo()"
   >Delete</button>
 </div>

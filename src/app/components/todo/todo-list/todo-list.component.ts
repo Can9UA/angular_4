@@ -12,14 +12,4 @@ import { Todo } from 'app/shared/todoClass';
 })
 export class TodoListComponent {
   @Input() todos: Todo[];
-  @Output() deleteItem: EventEmitter<Todo> = new EventEmitter();
-  @Output() toggleItemState: EventEmitter<Todo> = new EventEmitter();
-
-  deleteThis(todo: Todo) {
-    this.deleteItem.emit(todo);
-  }
-
-  toggleThis(todo: Todo) {
-    this.toggleItemState.emit(todo);
-  }
 }

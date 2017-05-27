@@ -18,27 +18,4 @@ export class TodoComponent implements OnInit {
     this.todoService.getTodos()
       .subscribe(todos => this.todos = todos);
   }
-
-  toggleTodoState(todo: Todo) {
-    this.todoService.toggleTodoState(todo)
-      .subscribe(() => {
-        todo.complited = !todo.complited;
-      });
-  }
-
-  addTodo(title: string) {
-    this.todoService.addTodo(title)
-      .subscribe(todo => this.todos.push(todo));
-  }
-
-  deleteTodo(todo: Todo) {
-    this.todoService.deleteTodo(todo)
-      .subscribe(() => {
-        const index = this.todos.indexOf(todo);
-
-        if (index > -1) {
-          this.todos.splice(index, 1);
-        }
-      });
-  }
 }
