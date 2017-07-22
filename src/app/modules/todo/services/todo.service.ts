@@ -19,6 +19,10 @@ export class TodoService {
 
   constructor(private http: Http) {}
 
+  getMessage() {
+    return 'Message Text';
+  }
+
   getTodos(): Observable<Todo[]> {
     return this.http.get(this.apiUrl)
       .map(res => res.json().data)
